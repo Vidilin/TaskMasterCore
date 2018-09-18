@@ -1,0 +1,103 @@
+﻿@model Request
+
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@*@inject IViewLocalizer Localizer
+
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer*@
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div id="categories">
+    <h2>@SharedLocalizer["Navigation"]</h2>
+    <ul id="tree1">
+        @ListHelper.CreateList(Html, ViewBag.allRequests)
+    </ul>
+
+    <a asp-controller="Request" class="btn btn-default" asp-action="Create">@SharedLocalizer["New"]</a>
+</div>
+
+<div id="content">
+    <h2>@SharedLocalizer["Request"]</h2>
+    @if (Model != null)
+    {
+        @if (Model.ParentName != null)
+        {
+            <h3>@SharedLocalizer["Parent"] @Model.ParentName</h3>
+        }
+
+        <div class="Label Name">     @Html.LabelFor(m => m.Name) </div>
+        <div class="Display Name">   @Html.DisplayFor(m => m.Name) </div>
+
+        @if (Model.Performers != null)
+        {
+            <div class="Label Performers">     @Html.LabelFor(m => m.Performers) </div>
+            <div class="Display Performers">   @Html.DisplayFor(m => m.Performers) </div>
+        }
+
+        @if (Model.Comment != null)
+        {
+            <div class="Label Comment">     @Html.LabelFor(m => m.Comment) </div>
+            <div class="Display Comment">   @Html.DisplayFor(m => m.Comment) </div>
+        }
+
+        <div class="Label CreateDate">     @Html.LabelFor(m => m.CreateDate) </div>
+        <div class="Display CreateDate">   @Html.DisplayFor(m => m.CreateDate) </div>
+
+        <div class="Label StartDate">     @Html.LabelFor(m => m.StartDate) </div>
+        <div class="Display StartDate">   @Html.DisplayFor(m => m.StartDate) </div>
+
+        <div class="Label Status">     @Html.LabelFor(m => m.Status) </div>
+        <div class="Display Status">   @Html.DisplayFor(m => m.Status) </div>
+
+        @if (Model.EndDate != null)
+        {
+            <div class="Label Status">     @Html.LabelFor(m => m.EndDate) </div>
+            <div class="Display Status">   @Html.DisplayFor(m => m.EndDate) </div>
+        }
+
+        <div class="Label Deadline">     @Html.LabelFor(m => m.Deadline) </div>
+        <div class="Display Deadline">   @Html.DisplayFor(m => m.Deadline) </div>
+
+        <div class="Label LaborIntensity">     @Html.LabelFor(m => m.LaborIntensity) </div>
+        <div class="Display LaborIntensity">   @Html.DisplayFor(m => m.LaborIntensity) </div>
+
+        @if (Model.ExecutionTime != null)
+        {
+            <div class="Label ExecutionTime">     @Html.LabelFor(m => m.ExecutionTime) </div>
+            <div class="Display ExecutionTime">   @Html.DisplayFor(m => m.ExecutionTime) </div>
+        }
+
+        @if (Model.ChildsNames.Count != 0)
+        {
+            <h3>@SharedLocalizer["Childs"]</h3>
+            @foreach (string childName in Model.ChildsNames)
+            {
+                <p>@childName</p>
+            }
+        }
+
+        <div>
+            <form asp-controller="Request" asp-action="Edit" method="post">
+                @*<div class="form-group">*@
+                <input type="hidden" name="id" value="@Model.Id">
+                <input type="submit" class="btn btn-default" value="@SharedLocalizer["Edit"]" />
+                @*</div>*@
+            </form>
+
+            <form asp-controller="Request" asp-action="Create" method="post">
+                @*<div class="form-group">*@
+                <input type="hidden" name="parentId" value="@Model.Id">
+                <input type="submit" class="btn btn-default" value="@SharedLocalizer["MakeChild"]" />
+                @*</div>*@
+            </form>
+        </div>
+    }
+
+
+
+
+</div>
+

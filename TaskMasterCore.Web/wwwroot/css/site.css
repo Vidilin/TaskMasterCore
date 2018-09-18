@@ -1,0 +1,222 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+DIV#content {
+    /*border-left: 2px solid gray;*/
+    float: left;
+    /*margin-left: 19em;*/
+    padding: 1em;
+}
+
+    DIV#content DIV.Label {
+        /*margin: .8em;*/
+        font-size: large;
+        font-weight: bold;
+    }
+
+    DIV#content DIV.Display {
+        /*margin-bottom: .8em;*/
+        border: 1px solid gray;
+        padding: 10px;
+        /*margin: 20px;*/
+    }
+
+DIV#categories {
+    float: left;
+    width: auto;
+    border-right: 2px solid gray;
+    padding-right: .3em;
+    padding-left: .3em;
+}
+/*
+    DIV#categories A {
+        font: "Arial Narrow","Franklin Gothic Medium",Arial;
+        display: block;
+        text-decoration: none; 
+        color: Black;
+        border-bottom: 1px solid silver;
+    }
+
+        DIV#categories A.selected {
+            background-color: #666;
+            color: White;
+        }
+
+        DIV#categories A:hover {
+            background-color: #CCC;
+        }
+
+        DIV#categories A.selected:hover {
+            background-color: #666;
+        }
+    */
+FORM {
+    margin: 0;
+    padding: 0;
+}
+
+.field-validation-error {
+    color: red;
+    display: block;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid red;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: red;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.editor-field {
+    margin-bottom: .8em;
+}
+
+.editor-label {
+    font-weight: bold;
+}
+
+    .editor-label:after {
+        content: ":"
+    }
+
+.text-box {
+    width: 25em;
+}
+
+.multi-line {
+    height: 5em;
+    font-family: Segoe UI, Verdana;
+}
+
+/* CSS-стили для сообщения (Message)
+-----------------------------------------------------------*/
+DIV.Message {
+    background: gray;
+    color: White;
+    padding: .2em;
+    margin-top: .25em;
+}
+
+DIV.ErrorMessage {
+    background: gray;
+    color: red;
+    padding: .2em;
+    margin-top: .25em;
+}
+/*-----------------------------------------------------------*/
+.tree, .tree ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+    .tree ul {
+        margin-left: 1em;
+        position: relative;
+    }
+
+        .tree ul ul {
+            margin-left: .5em;
+        }
+
+        .tree ul:before {
+            content: "";
+            display: block;
+            width: 0;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            border-left: 1px solid;
+        }
+
+    .tree li {
+        margin: 0;
+        padding: 0 1em;
+        line-height: 2em;
+        color: #369;
+        font-weight: 700;
+        position: relative;
+    }
+
+    .tree ul li:before {
+        content: "";
+        display: block;
+        width: 10px;
+        height: 0;
+        border-top: 1px solid;
+        margin-top: -1px;
+        position: absolute;
+        top: 1em;
+        left: 0;
+    }
+
+    .tree ul li:last-child:before {
+        background: #fff;
+        height: auto;
+        top: 1em;
+        bottom: 0;
+    }
+
+.indicator {
+    margin-right: 5px;
+}
+
+.tree li a {
+    text-decoration: none;
+    color: #369;
+}
+
+.tree li button, .tree li button:active, .tree li button:focus {
+    text-decoration: none;
+    color: #369;
+    border: none;
+    background: transparent;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    outline: 0;
+}
